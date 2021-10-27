@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+ <div id='container'></div>
+</body>
+<script>
+    var arr = [ { "element": "h1", "children": "Hello World!" },
+    { "element": "p", "children": "I love pizza!" },  {
+      "element": "div",
+      "children": [
+        {
+          "element": "a",
+          "children": "Order pizza!",
+          "props": { "href": "https://unison.com" }
+        }
+      ]
+    }];
+    var cont = document.getElementById('container');
+
+    // create ul element and set the attributes.
+    var ul = document.createElement('ul');
+    ul.setAttribute('style', 'padding: 0; margin: 0;');
+    ul.setAttribute('id', 'theList');
+   
+    var h1 = document.createElement('h1');     // create h1 element.
+        h1.innerHTML = arr[0].children;      
+        ul.appendChild(h1);     // append h1 to ul.
+    
+   
+     var p = document.createElement('p');     // create p element.
+         p.innerHTML = arr[1].children;   
+        ul.appendChild(p);     // append p to ul.
+   
+     var a = document.createElement('a');     // create a element.
+       a.innerHTML = arr[2].children[0].children;      
+         ul.appendChild(a);     // append a to ul.
+ 
+   var a = document.createElement('a');
+      var linkText = document.createTextNode(
+        arr[2].children[0].props.href);
+      a.appendChild(linkText);
+      a.title = arr[2].children[0].props.href;
+      a.href = arr[2].children[0].props.href;
+      document.body.appendChild(a);
+
+        cont.appendChild(ul);     // add list to the container.
+</script>
+</html>
