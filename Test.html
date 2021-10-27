@@ -31,18 +31,14 @@
          p.innerHTML = arr[1].children;   
         ul.appendChild(p);     // append p to ul.
    
-     var a = document.createElement('a');     // create a element.
-       a.innerHTML = arr[2].children[0].children;      
-         ul.appendChild(a);     // append a to ul.
- 
-   var a = document.createElement('a');
-      var linkText = document.createTextNode(
-        arr[2].children[0].props.href);
-      a.appendChild(linkText);
-      a.title = arr[2].children[0].props.href;
-      a.href = arr[2].children[0].props.href;
-      document.body.appendChild(a);
-
+     var a = document.createElement('a');  // create a element.
+     var linkText = document.createTextNode(
+      arr[2].children[0].children);
+        a.appendChild(linkText);
+      a.title = arr[2].children[0].children;
+      a.href =  arr[2].children[0].props.href;
+            ul.appendChild(a);     // append a to ul.
+        
         cont.appendChild(ul);     // add list to the container.
 </script>
 </html>
